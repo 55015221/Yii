@@ -1,0 +1,67 @@
+*{list-style: none;}
+ul{margin: 0;padding: 0;}
+body {background: #FFF;font-family: Tahoma,"Microsoft Yahei",Arial;font-size: 12px;line-height: 1.25;color: #333; height: auto !important;}
+.green{color:#0D8C21;}
+
+
+
+/*#1E71B1*/
+
+/** 导航·列表 **/
+.header .navbar-brand{line-height: 28px;margin-left: 15px;}
+.header .docs-item-top{}
+.header .docs-item-top > li > a{padding:5px 10px;text-align: center;}
+.header .docs-item-top > li > a  span.glyphicon{height: 28px;line-height: 28px;display: block;font-size: 24px;}
+.header .navbar{border-radius:0;border:0;}
+.navbar-inverse{background:#354B66;border-bottom:1px solid #30373F;}
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus{background:#30373F;}
+
+/** 侧边栏 **/
+.docs-item-side li.active a{color: #FFF;}
+.docs-item-side .list-group-item{padding: 0;}
+.docs-item-side .list-group-item a{padding: 10px 15px;display: block;}
+
+
+/** 整体布局 **/
+.wrap .row,
+.wrap .col-md-2,
+.wrap .col-md-10{}
+
+.footer{background:#30373F;}
+.footder hr{border-top: 1px solid #373E48;border-bottom: 1px solid #252A30;}
+
+/** 后台登录 **/
+.login-form{width: 530px;background: #FAFAFA;padding:10px 20px 0 20px;margin: 120px auto 0 auto;border: 1px solid #C9CCD0;border-radius: 6px;box-shadow: 0 0 7px rgba(200, 200, 200, 0.75)}
+.login-form form {padding: 5px 0;}
+.login-form legend {font-weight: 500;padding-bottom: 10px;}
+.login-form span.required{display: none;}
+.login-form input[type='checkbox']{margin-top: 1px;}
+
+
+
+
+
+
+/** 重写 **/
+.row{margin-right: 0;}
+.col-md-10{min-height: 600px;}
+.form-control{height: 28px;padding: 3px 5px;border-radius: 3px;}
+.breadcrumbs{background: #F5F5F5; border-radius: 4px;margin-bottom: 20px;padding: 0 10px;color:#999;height:30px;line-height: 30px;}
+.breadcrumbs a{margin: 0 5px;}
+.breadcrumbs span{margin: 0 5px;}
+h2{font-family: Microsoft YaHei,Arial,sans-serif;color: #333;font-size: 16px;font-weight: bold;margin-top: 0;}
+h2 small{font-size: 12px;}
+table td{word-break: break-all;word-wrap:break-word;}
+
+
+
+
+
+/****/
+table tr.item-parent{background: #F5F5F5;}
+.toggle-show{cursor:pointer;display: block;text-align: center;}
+
+.content-box{margin-left: 30px;}
+.content-box li{float: left;text-align: center;margin: 0 15px 20px 15px;}
+.content-box li a{}
+.content-box li span.glyphicon{width: 120px;height: 120px;line-height: 120px;display: block;font-size: 48px;border:1px solid #CCC;border-radius: 4px;background: #F9F9F9;}
