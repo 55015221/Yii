@@ -21,7 +21,7 @@ class PictureController extends Controller {
                 echo 'Error: Documento Invalido';
                 Yii::app()->end();
             }
-            $picture_name = $picture_file->name;
+            $picture_name = time() . '_' . mt_rand(10000, 99999) . '.' . pathinfo($picture_file->name, PATHINFO_EXTENSION);
             $picture_file->saveAs(Tool::generateFilePath() . '/' . $picture_name);
             
             echo Tool::generateFilePath('images', true) . '/' . $picture_name;
