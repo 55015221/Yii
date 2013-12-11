@@ -35,3 +35,5 @@ $this->widget('application.extensions.swfupload.CSwfUpload', array(
     </div>
 </div>
 <?php echo CHtml::endForm(); ?>
+
+<div id="thumbnails"></div>

@@ -2,15 +2,15 @@
 Navicat MySQL Data Transfer
 
 Source Server         : 127.0.0.1
-Source Server Version : 50534
-Source Host           : 127.0.0.1:3306
+Source Server Version : 50612
+Source Host           : localhost:3306
 Source Database       : yii
 
 Target Server Type    : MYSQL
-Target Server Version : 50534
+Target Server Version : 50612
 File Encoding         : 65001
 
-Date: 2013-12-10 20:07:09
+Date: 2013-12-12 00:23:49
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,7 +20,7 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `yii_article`;
 CREATE TABLE `yii_article` (
-  `article_id` int(11) NOT NULL DEFAULT '0',
+  `article_id` int(11) NOT NULL AUTO_INCREMENT,
   `category_id` int(11) DEFAULT NULL,
   `article_title` varchar(255) DEFAULT NULL,
   `article_intro` text,
@@ -33,7 +33,7 @@ CREATE TABLE `yii_article` (
   `article_description` varchar(255) DEFAULT NULL,
   `article_keywords` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`article_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of yii_article
@@ -105,7 +105,7 @@ INSERT INTO `yii_article` VALUES ('61', '6', '21332222改了', '213', '<p>\r\n	2
 -- ----------------------------
 DROP TABLE IF EXISTS `yii_category`;
 CREATE TABLE `yii_category` (
-  `category_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL AUTO_INCREMENT,
   `category_pid` int(11) NOT NULL,
   `category_name` varchar(255) NOT NULL,
   `category_module` varchar(255) DEFAULT NULL,
@@ -114,7 +114,7 @@ CREATE TABLE `yii_category` (
   `category_is_nav` int(11) NOT NULL,
   `category_order` int(11) DEFAULT NULL,
   PRIMARY KEY (`category_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of yii_category
@@ -137,11 +137,12 @@ INSERT INTO `yii_category` VALUES ('12', '2', '联系我们', 'about', '0-2', '/
 -- ----------------------------
 DROP TABLE IF EXISTS `yii_logs`;
 CREATE TABLE `yii_logs` (
-  `log_id` int(11) NOT NULL,
+  `log_id` int(11) NOT NULL AUTO_INCREMENT,
   `log_type` int(11) DEFAULT NULL,
   `log_remark` varchar(255) DEFAULT NULL,
   `log_create_time` timestamp NULL DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL
+  `user_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`log_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -153,14 +154,14 @@ CREATE TABLE `yii_logs` (
 -- ----------------------------
 DROP TABLE IF EXISTS `yii_picture`;
 CREATE TABLE `yii_picture` (
-  `pic_id` int(11) NOT NULL,
+  `pic_id` int(11) NOT NULL AUTO_INCREMENT,
   `pic_alt` varchar(255) DEFAULT NULL,
   `pic_path` varchar(255) DEFAULT NULL,
   `pic_module` varchar(255) DEFAULT NULL,
   `pic_foreign_id` int(11) DEFAULT NULL,
   `pic_create_time` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`pic_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of yii_picture
@@ -171,13 +172,25 @@ INSERT INTO `yii_picture` VALUES ('3', '人人为我', 'uploads/images/20130904/
 INSERT INTO `yii_picture` VALUES ('4', '任何人都可以使用', 'uploads/images/20130904/bs-docs-twitter-github.png', 'product', '1', '2013-09-06 14:33:53');
 INSERT INTO `yii_picture` VALUES ('5', '213213', 'uploads/images/20131204/1386129840_10147.png', 'categary', null, '2013-12-04 12:04:00');
 INSERT INTO `yii_picture` VALUES ('6', '2222', 'uploads/images/20131206/1386327720_26625.jpg', 'categary', null, '2013-12-06 19:02:00');
+INSERT INTO `yii_picture` VALUES ('7', 'cloud.png', '/uploads/images/20131212/1386778011_95945.png', 'product', '1', '2013-12-12 00:06:51');
+INSERT INTO `yii_picture` VALUES ('8', 'background.png', '/uploads/images/20131212/1386778676_59405.png', 'product', '1', '2013-12-12 00:17:56');
+INSERT INTO `yii_picture` VALUES ('9', '030731995onebit_41.png', '/uploads/images/20131212/1386778867_97376.png', 'product', '1', '2013-12-12 00:21:07');
+INSERT INTO `yii_picture` VALUES ('10', 'bg_header0cb570.png', '/uploads/images/20131212/1386778889_19123.png', 'product', '1', '2013-12-12 00:21:30');
+INSERT INTO `yii_picture` VALUES ('11', 'li-b.png', '/uploads/images/20131212/1386778937_68098.png', 'product', '1', '2013-12-12 00:22:17');
+INSERT INTO `yii_picture` VALUES ('12', 'list_bg.png', '/uploads/images/20131212/1386778937_15969.png', 'product', '1', '2013-12-12 00:22:17');
+INSERT INTO `yii_picture` VALUES ('13', 'logo.gif', '/uploads/images/20131212/1386778937_48036.gif', 'product', '1', '2013-12-12 00:22:17');
+INSERT INTO `yii_picture` VALUES ('14', 'logo.png', '/uploads/images/20131212/1386778938_86721.png', 'product', '1', '2013-12-12 00:22:18');
+INSERT INTO `yii_picture` VALUES ('15', 'no-pic.png', '/uploads/images/20131212/1386778938_32271.png', 'product', '1', '2013-12-12 00:22:18');
+INSERT INTO `yii_picture` VALUES ('16', 'pattern.png', '/uploads/images/20131212/1386778938_53654.png', 'product', '1', '2013-12-12 00:22:18');
+INSERT INTO `yii_picture` VALUES ('17', 'public.png', '/uploads/images/20131212/1386778939_76313.png', 'product', '1', '2013-12-12 00:22:19');
+INSERT INTO `yii_picture` VALUES ('18', 'public_02.gif', '/uploads/images/20131212/1386778939_95254.gif', 'product', '1', '2013-12-12 00:22:19');
 
 -- ----------------------------
 -- Table structure for yii_product
 -- ----------------------------
 DROP TABLE IF EXISTS `yii_product`;
 CREATE TABLE `yii_product` (
-  `product_id` int(11) NOT NULL DEFAULT '0',
+  `product_id` int(11) NOT NULL AUTO_INCREMENT,
   `category_id` int(11) DEFAULT NULL,
   `product_name` varchar(255) DEFAULT NULL,
   `product_introduce` varchar(255) DEFAULT NULL,
@@ -187,7 +200,7 @@ CREATE TABLE `yii_product` (
   `product_keys` varchar(255) DEFAULT NULL,
   `product_content` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`product_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of yii_product
@@ -204,31 +217,31 @@ INSERT INTO `yii_product` VALUES ('6', '7', '2312321313', '312321312313', 'uploa
 -- ----------------------------
 DROP TABLE IF EXISTS `yii_user`;
 CREATE TABLE `yii_user` (
-  `user_id` int(11) NOT NULL DEFAULT '0',
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `nickname` varchar(255) DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT NULL,
   `last_login_time` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of yii_user
 -- ----------------------------
-INSERT INTO `yii_user` VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'guanliyuan', null, '2013-12-09 14:12:16');
+INSERT INTO `yii_user` VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'guanliyuan', null, '2013-12-11 22:29:41');
 
 -- ----------------------------
 -- Table structure for yii_widgets
 -- ----------------------------
 DROP TABLE IF EXISTS `yii_widgets`;
 CREATE TABLE `yii_widgets` (
-  `widget_id` int(11) NOT NULL DEFAULT '0',
+  `widget_id` int(11) NOT NULL AUTO_INCREMENT,
   `widget_name` varchar(255) DEFAULT NULL,
   `widget_desc` varchar(255) DEFAULT NULL,
   `widget_content` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`widget_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of yii_widgets

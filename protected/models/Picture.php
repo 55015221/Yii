@@ -42,7 +42,7 @@ class Picture extends BasicModel {
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
             array('pic_id, pic_alt, pic_path, pic_module, pic_foreign_id, pic_create_time', 'safe', 'on' => 'search'),
-            array('verifyCode', 'captcha', 'allowEmpty' => !extension_loaded('gd')),
+            //array('verifyCode', 'captcha', 'allowEmpty' => !extension_loaded('gd')),
         );
     }
 
