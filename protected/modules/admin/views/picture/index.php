@@ -4,7 +4,7 @@ $this->widget('application.extensions.swfupload.CSwfUpload', array(
     'config' => array(
         'use_query_string' => false,
         'upload_url' => $this->createUrl('picture/upload'), //Use $this->createUrl method or define yourself
-        'file_size_limit' => '60 MB',
+        'file_size_limit' => '2 MB',
         'file_types' => '*.jpg;*.png;*.gif',
         'file_types_description' => 'Image Files',
         'file_upload_limit' => 0,

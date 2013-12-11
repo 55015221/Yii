@@ -10,7 +10,7 @@ function fileQueueError(file, errorCode, message) {
 			alert(errorName);
 			return;
 		}
-                        
+
 		switch (errorCode) {
 		case SWFUpload.QUEUE_ERROR.ZERO_BYTE_FILE:
 			imageName = "zerobyte.gif";
@@ -169,6 +169,7 @@ function addImage(src) {
 function fadeIn(element, opacity) {
 	var reduceOpacityBy = 5;
 	var rate = 30;	// 15 fps
+
 
 	if (opacity < 100) {
 		opacity += reduceOpacityBy;

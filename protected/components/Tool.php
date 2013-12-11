@@ -131,8 +131,11 @@ class Tool {
      */
     public static function generateFilePath($type = 'images', $url = false) {
         $filepath = Yii::app()->params['upload_path'] . '/' . $type . '/' . date('Ymd', time());
-        $base = $url ? Yii::app()->baseUrl : dirname(Yii::app()->basePath);
-        return $base . '/' . $filepath;
+        if(Tool::makedir($filepath)){
+            $base = $url ? Yii::app()->baseUrl : dirname(Yii::app()->basePath);
+            return $base . '/' . $filepath;
+        }
+        return null;
     }
 
     /**
