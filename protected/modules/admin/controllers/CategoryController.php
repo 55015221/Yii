@@ -4,7 +4,7 @@ class CategoryController extends Controller {
 
     public function actionIndex() {
         $criteria = new CDbCriteria();
-        $criteria->select = "*,category_path||'-'||category_id AS path";
+        $criteria->select = "*,CONCAT(category_path,'-',category_id) AS path";
         $criteria->order = "path ASC";
         $list = Category::model()->findAll($criteria);
 

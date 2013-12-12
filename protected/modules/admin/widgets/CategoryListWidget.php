@@ -12,7 +12,7 @@ class CategoryListWidget extends CWidget {
 
     public function run() {
         $criteria = new CDbCriteria();
-        $criteria->select = "*,category_path||'-'||category_id AS path";
+        $criteria->select = "*,CONCAT(category_path,'-',category_id) AS path";
         $criteria->order = "path ASC";
         $criteria->addCondition("category_name <> '首页'");
         $list = Category::model()->findAll($criteria);

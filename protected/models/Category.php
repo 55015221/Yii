@@ -88,7 +88,7 @@ class Category extends BasicModel {
 
     public function nodes() {
         $criteria = new CDbCriteria();
-        $criteria->select = "*,category_path||'-'||category_id AS path";
+        $criteria->select = "*,CONCAT(category_path,'-',category_id) AS path";
         $criteria->order = "path ASC";
         $criteria->addCondition("category_name<>'首页'");
         $list = $this->findAll($criteria);
@@ -106,12 +106,11 @@ class Category extends BasicModel {
     }
 
     public function getChildren($category_id) {
-
         return $this->findAll('category_pid=:category_id', array($category_id));
     }
 
     public function isParent($category_id) {
-        return $this->find('category_pid=:category_id', array($category_id)) ? true : false;
+        return $this->find('category_pid=:category_id', array(':category_id'=>$category_id)) ? true : false;
     }
 
 }
