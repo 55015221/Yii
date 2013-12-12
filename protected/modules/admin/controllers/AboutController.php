@@ -6,13 +6,6 @@ class AboutController extends Controller {
     private $_model;
 
     public function actionIndex() {
-
-        $this->pageTitle = Yii::app()->name . ' - 简介管理';
-        $this->breadcrumbs = array(
-            '简介管理' => array('about/index'),
-            '简介列表'
-        );
-
         $records = Article::model()->getArticleByModule($this->_module);
         $this->render('index', array(
             'records' => $records,

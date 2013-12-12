@@ -1,12 +1,10 @@
 <?php
-$this->pageTitle = Yii::app()->name . ' - 栏目编辑';
+$this->pageTitle = Yii::app()->name . ' - 简介编辑';
 $this->breadcrumbs = array(
-    '栏目配置' => array('category/index'),
-    '栏目编辑'
+    '简介管理' => array('about/index'),
+    $model->category->category_name,
 );
 ?>
-<h2>栏目编辑</h2>
-
 
 <?php
 $form = $this->beginWidget('CActiveForm', array(
@@ -19,13 +17,6 @@ $form = $this->beginWidget('CActiveForm', array(
     <?php echo $form->labelEx($model, 'article_title', array('class' => 'col-md-2 control-label')); ?>
     <div class="col-sm-10">
         <?php echo $form->textField($model, 'article_title', array('class' => 'form-control', 'value' => $model->article_title)); ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <?php echo $form->labelEx($model, 'category_name', array('class' => 'col-md-2 control-label')); ?>
-    <div class="col-sm-10">
-        <?php $this->widget('admin.widgets.CategoryListWidget', array('selected' => $model->category->category_id)); ?>
     </div>
 </div>
 

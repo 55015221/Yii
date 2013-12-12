@@ -6,13 +6,6 @@ class ArticleController extends Controller {
     public $_module = 'article';
 
     public function actionIndex() {
-
-        $this->pageTitle = Yii::app()->name . ' - 文章管理';
-        $this->breadcrumbs = array(
-            '文章管理' => array('article/index'),
-            '文章列表'
-        );
-
         $records = Article::model()->getArticleByModule($this->_module);
         $this->render('index', array(
             'records' => $records,

@@ -5,8 +5,6 @@ $this->breadcrumbs = array(
     '栏目编辑'
 );
 ?>
-<h2>栏目编辑</h2>
-
 <?php //$this->widget('admin.widgets.CategoryListWidget', array('selected' => $model->category_id)); ?>
 
 <?php

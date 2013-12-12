@@ -1,12 +1,20 @@
-<div class="page-header">
-    <h2>
-        <small class="navbar-right">
-            <?php echo CHtml::link('<span class="glyphicon glyphicon-pencil"></span> 新增', $this->createUrl('create'), array('title' => '新增')); ?> 
-        </small>
-    </h2>
-</div>
-<table class="table table-hover">
-    <colgroup>
+<?php
+
+$this->pageTitle = Yii::app()->name . ' - 文章管理';
+$this->breadcrumbs = array(
+    '文章管理' => array('article/index'),
+    '文章列表'
+    );
+?>
+    <div class="page-header">
+        <h2>
+            <small class="navbar-right">
+                <?php echo CHtml::link('<span class="glyphicon glyphicon-pencil"></span> 新增', $this->createUrl('create'), array('title' => '新增')); ?> 
+            </small>
+        </h2>
+    </div>
+    <table class="table table-hover">
+        <colgroup>
         <col>
         <col>
         <col>
@@ -26,8 +34,8 @@
             <th>操作</th>
         </tr>
     </thead>
-        <?php
-        $this->widget('zii.widgets.CListView', array(
+    <?php
+    $this->widget('zii.widgets.CListView', array(
             'dataProvider' => $records, //数据
             'itemView' => '_view', //显示的模版
             'id' => Yii::app()->controller->id,
@@ -51,7 +59,7 @@
                 'nextPageLabel' => '下一页',
                 'prevPageLabel' => '上一页',
                 'lastPageLabel' => '末页',
-            ),
-        ));
-        ?>
-</table>
+                ),
+            ));
+            ?>
+        </table>

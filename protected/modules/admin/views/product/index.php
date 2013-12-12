@@ -1,3 +1,10 @@
+<?php
+$this->pageTitle = Yii::app()->name . ' - 产品管理';
+$this->breadcrumbs = array(
+    '产品管理' => array('product/index'),
+    '产品列表'
+    );
+?>
 <div class="page-header">
     <h2>
         <small class="navbar-right">
