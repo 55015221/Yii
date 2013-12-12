@@ -16,6 +16,8 @@
  */
 class Product extends BasicModel {
 
+    public $_module = 'product';
+
     /**
      * Returns the static model of the specified AR class.
      * @param string $className active record class name.
@@ -54,6 +56,9 @@ class Product extends BasicModel {
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
+            'category' => array(self::BELONGS_TO, 'Category', 'category_id'),
+            'categories' => array(self::BELONGS_TO, 'Category', '', 'on' => 'category.category_pid=categories.category_id'),
+            'user' => array(self::BELONGS_TO, 'User', 'user_id', 'select' => array('username')),
             'picture' => array(self::HAS_MANY, 'Picture', array('pic_foreign_id' => 'product_id'), 'on' => 'pic_module = "product"'),
         );
     }
@@ -100,12 +105,12 @@ class Product extends BasicModel {
         ));
     }
     
-    public function getProductList($module) {
+    public function getProductList() {
         $criteria = new CDbCriteria(array(
             'with' => array('category', 'categories', 'user'),
-            'condition' => "category.category_module='" . $module . "'",
+            'condition' => "category.category_module='" . $this->_module . "'",
             'together' => true,
-            'order' => 't.article_create_time desc',
+            'order' => 't.product_create_time desc',
         ));
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
@@ -114,6 +119,10 @@ class Product extends BasicModel {
                 'pageSize' => Yii::app()->params['pagesize'],
             ),
         ));
+    }
+
+    public function getProductByPk($pk) {
+        return $this->with(array('category', 'categories', 'user','picture'))->findByPk($pk);
     }
 
 }
