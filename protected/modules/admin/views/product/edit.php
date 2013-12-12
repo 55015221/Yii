@@ -42,6 +42,22 @@ $form = $this->beginWidget('CActiveForm', array(
 </div>
 
 <div class="form-group">
+    <?php echo $form->labelEx($model, 'product_picture', array('class' => 'col-md-2 control-label')); ?>
+    <div class="col-sm-10">
+        <?php //echo $form->file($model, 'product_picture', array('class' => 'form-control', 'value' => $model->product_picture)); ?>
+            <!-- <div id="divFileProgressContainer"></div> -->
+            <div class="swfupload"><span id="swfupload"></span></div>
+        <div id="thumbnails">
+            <?php if(!empty($model->picture)):?>
+                <?php foreach($model->picture as $picture):?>
+                    <img width="100" height="80" src="<?php echo $picture->pic_path;?>" alt="<?php echo $picture->pic_alt;?>">
+                <?php endforeach;?>
+            <?php endif;?>
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
     <?php echo $form->labelEx($model, 'product_content', array('class' => 'col-md-2 control-label')); ?>
     <div class="col-sm-10">
         <?php Tool::kindeditor('product_content'); ?>
@@ -58,3 +74,32 @@ $form = $this->beginWidget('CActiveForm', array(
 </div>
 
 <?php $this->endWidget(); ?>
+
+<?php
+$this->widget('application.extensions.swfupload.CSwfUpload', array(
+    'postParams' => array(),
+    'config' => array(
+        'use_query_string' => false,
+        'upload_url' => $this->createUrl('picture/upload'), //Use $this->createUrl method or define yourself
+        'file_size_limit' => '2 MB',
+        'file_types' => '*.jpg;*.png;*.gif',
+        'file_types_description' => 'Image Files',
+        'file_upload_limit' => 0,
+        'file_queue_error_handler' => 'js:fileQueueError',
+        'file_dialog_complete_handler' => 'js:fileDialogComplete',
+        'upload_progress_handler' => 'js:uploadProgress',
+        'upload_error_handler' => 'js:uploadError',
+        'upload_success_handler' => 'js:uploadSuccess',
+        'upload_complete_handler' => 'js:uploadComplete',
+        'custom_settings' => array('upload_target' => 'divFileProgressContainer'),
+        'button_placeholder_id' => 'swfupload',
+        'button_width' => 178,
+        'button_height' => 20,
+        'button_text' => '<span>上传 (Max 2 MB)</span>',
+        'button_window_mode' => 'js:SWFUpload.WINDOW_MODE.TRANSPARENT',
+        'button_cursor' => 'js:SWFUpload.CURSOR.HAND',
+        'debug' => true,
+    ),
+        )
+);
+?>
