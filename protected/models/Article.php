@@ -71,6 +71,7 @@ class Article extends BasicModel {
         return array(
             'article_id' => 'News',
             'category_id' => 'Category',
+            'category_name' => '所属栏目',
             'article_title' => '标题',
             'article_intro' => '摘要',
             'article_content' => '内容',

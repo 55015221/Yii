@@ -70,13 +70,14 @@ class Product extends BasicModel {
         return array(
             'product_id' => 'Product',
             'category_id' => 'Category',
-            'product_name' => 'Product Name',
-            'product_introduce' => 'Product Introduce',
-            'product_picture' => 'Product Picture',
-            'product_create_time' => 'Product Create Time',
+            'category_name' => '所属栏目',
+            'product_name' => '产品名称',
+            'product_introduce' => '产品简介',
+            'product_picture' => '产品图片',
+            'product_create_time' => '添加时间',
             'user_id' => 'User',
-            'product_keys' => 'Product Keys',
-            'product_content' => 'Product Content',
+            'product_keys' => '关键字',
+            'product_content' => '产品介绍',
         );
     }
 
