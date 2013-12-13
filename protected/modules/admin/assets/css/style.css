@@ -13,7 +13,7 @@ body {background: #FFF;font-family: Tahoma,"Microsoft Yahei",Arial;font-size: 12
 .header .docs-item-top > li > a{padding:5px 10px;text-align: center;}
 .header .docs-item-top > li > a  span.glyphicon{height: 28px;line-height: 28px;display: block;font-size: 24px;}
 .header .navbar{border-radius:0;border:0;}
-.navbar-inverse{background:#354B66;border-bottom:1px solid #30373F;}
+.navbar-inverse{background:#404853;/* #354B66;*/border-bottom:1px solid #30373F;}
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus{background:#30373F;}
 
 /** 侧边栏 **/

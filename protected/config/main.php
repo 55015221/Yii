@@ -61,6 +61,7 @@ $config = array(
                     'class' => 'CWebLogRoute',
                     'levels' => 'trace,error, warning',
                 //'categories' => 'system.*',
+                    'showInFireBug'=>true,
                 ),
 //                array(
 //                    'class' => 'CFileLogRoute',

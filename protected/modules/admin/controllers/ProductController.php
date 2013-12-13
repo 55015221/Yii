@@ -30,8 +30,18 @@ class ProductController extends Controller {
         $model=new Product;
         if(isset($_POST['Product'])){
             $model->attributes=$_POST['Product'];
-            if($model->save())
+            $model->category_id = $_POST['category_id'];
+            $model->product_create_time = date('Y-m-d H:i:s');
+            $model->user_id = Yii::app()->user->id;
+            if($model->save()){
+                if(isset($_POST['picture'])){
+                    Picture::model()->updateAll(
+                        array('pic_foreign_id' => Yii::app()->db->getLastInsertId()),//$model->attributes['product_id']),
+                        'pic_id IN('.implode(',', $_POST['picture']).')'
+                        );
+                }
                 $this->redirect(array('index'));
+            }
         }
 
         $this->render('create',array(

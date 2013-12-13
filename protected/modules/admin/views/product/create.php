@@ -12,7 +12,6 @@ $form = $this->beginWidget('CActiveForm', array(
     'htmlOptions' => array('class' => 'form-horizontal', 'role' => 'form'),
         ));
 ?>
-<?php echo $form->hiddenField($model, 'product_id', array()); ?>
 <div class="form-group">
     <?php echo $form->labelEx($model, 'product_name', array('class' => 'col-md-2 control-label')); ?>
     <div class="col-sm-10">
