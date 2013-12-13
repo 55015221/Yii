@@ -140,7 +140,6 @@ function uploadError(file, errorCode, message) {
 
 
 function addImage(data) {
-	console.log(data);
 	var newDiv = document.createElement("div");
 	newDiv.className = 'thumbnail col-sm-3';
 	newDiv.innerHTML = '<img src="'+data.filename+'" alt="'+data.filename+'" /><div class="caption"><input type="hidden" name="picture[]" value="'+data.id+'" />'+data.filename+'<span class="navbar-right"><a href="javascript:;" title="删除" onclick="return deleteImage(this);">删除</a></span></div>';
