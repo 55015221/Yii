@@ -7,8 +7,8 @@ class ProductController extends Controller {
     public function actionIndex() {
         $records = Product::model()->getProductList();
         $this->render('index',array(
-        		'records' => $records,
-        	));
+          'records' => $records,
+          ));
     }
 
     public function actionEdit($id) {
@@ -23,11 +23,20 @@ class ProductController extends Controller {
 
         $this->render('edit', array(
             'model' => $model,
-        ));
+            ));
     }
 
     public function actionCreate() {
-        $this->render('cteate');
+        $model=new Product;
+        if(isset($_POST['Product'])){
+            $model->attributes=$_POST['Product'];
+            if($model->save())
+                $this->redirect(array('index'));
+        }
+
+        $this->render('create',array(
+            'model'=>$model,
+            ));
     }
 
     public function loadModel($id) {
@@ -37,8 +46,8 @@ class ProductController extends Controller {
             if (isset($id)) {
                 $condition = null;
                 $this->_model = Product::model()
-                        ->with(array('category', 'categories', 'user','picture'))
-                        ->findByPk($id, $condition);
+                ->with(array('category', 'categories', 'user','picture'))
+                ->findByPk($id, $condition);
             }
             if ($this->_model === null)
                 throw new CHttpException(404, 'The requested page does not exist.');

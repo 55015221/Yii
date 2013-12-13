@@ -93,38 +93,6 @@ class Picture extends BasicModel {
         ));
     }
 
-    /**
-     * 文件上传
-     * $pic_foreign_id => 外键id
-     * $pic_module => 模块
-     * $folder => 目录
-     * return array 
-     */
-    public static function upload($args,$folder = 'images'){
-        try {
-            $fileData = CUploadedFile::getInstanceByName('Filedata');
-            if (!$fileData || $fileData->getHasError()) {
-                echo 'Error: Documento Invalido';
-                Yii::app()->end();
-            }
-            $name = time() . '_' . mt_rand(10000, 99999) . '.' . $args['pic_alt'] ? : pathinfo($fileData->name, PATHINFO_EXTENSION);
-            $picture_file->saveAs(Tool::generateFilePath() . '/' . $name);
-            //插入数据库
-            $filename = Tool::generateFilePath($folder, true) . '/' . $name;            
-            $this->pic_alt = pathinfo($fileData->name, PATHINFO_BASENAME);
-            $this->pic_path = $filename;
-            $this->pic_module = $args['pic_module'];
-            $this->pic_foreign_id = $args['pic_foreign_id'];
-            $this->pic_create_time = date('Y-m-d H:i:s');
-            $this->save();
-            return array(
-                'pic_id'=>$this->attributes['pic_id'],
-                'filename'=>$filename,
-            );
-        } catch (Exception $e) {
-            echo 'Error: ' . $e->getMessage();
-        }
-        Yii::app()->end();
-    }
+    
 
 }

@@ -65,3 +65,11 @@ table tr.item-parent{background: #F5F5F5;}
 .content-box li{float: left;text-align: center;margin: 0 15px 20px 15px;}
 .content-box li a{}
 .content-box li span.glyphicon{width: 120px;height: 120px;line-height: 120px;display: block;font-size: 48px;border:1px solid #CCC;border-radius: 4px;background: #F9F9F9;}
+
+
+/****/
+#thumbnails{}
+/*#thumbnails img{width: 100px;height: 80px;vertical-align: middle;}*/
+#thumbnails .thumbnail {margin-right: 5px;}
+#thumbnails .thumbnail img{height: 80px;vertical-align: middle;}
+#thumbnails

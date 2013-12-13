@@ -44,13 +44,18 @@ $form = $this->beginWidget('CActiveForm', array(
 <div class="form-group">
     <?php echo $form->labelEx($model, 'product_picture', array('class' => 'col-md-2 control-label')); ?>
     <div class="col-sm-10">
-        <?php //echo $form->file($model, 'product_picture', array('class' => 'form-control', 'value' => $model->product_picture)); ?>
-            <!-- <div id="divFileProgressContainer"></div> -->
+            <div id="divFileProgressContainer"></div>
             <div class="swfupload"><span id="swfupload"></span></div>
         <div id="thumbnails">
             <?php if(!empty($model->picture)):?>
                 <?php foreach($model->picture as $picture):?>
-                    <img width="100" height="80" src="<?php echo $picture->pic_path;?>" alt="<?php echo $picture->pic_alt;?>">
+                    <div class="thumbnail col-sm-3">
+                        <img src="<?php echo $picture->pic_path;?>" alt="<?php echo $picture->pic_alt;?>" />
+                        <div class="caption">
+                            <input type="hidden" name="picture[]" value="<?php echo $picture->pic_id;?>" />
+                            <?php echo $picture->pic_alt;?><span class="navbar-right"><a href="javascript:;" title="删除" onclick="return deleteImage(this);">删除</a></span>
+                        </div>
+                    </div>
                 <?php endforeach;?>
             <?php endif;?>
         </div>

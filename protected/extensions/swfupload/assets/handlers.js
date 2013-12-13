@@ -21,12 +21,10 @@ function fileQueueError(file, errorCode, message) {
 		case SWFUpload.QUEUE_ERROR.ZERO_BYTE_FILE:
 		case SWFUpload.QUEUE_ERROR.INVALID_FILETYPE:
 		default:
-			console.log(message);
 			break;
 		}
 
 		addImage("images/" + imageName);
-
 	} catch (ex) {
 		this.debug(ex);
 	}
@@ -64,11 +62,11 @@ function uploadProgress(file, bytesLoaded) {
 
 function uploadSuccess(file, serverData) {
 	try {
+		var serverData = eval('(' + serverData + ')');
 		var progress = new FileProgress(file,  this.customSettings.upload_target);
-
-		if (serverData.substring(0, 7) === "FILEID:") {
-			//addImage("thumbnail.php?id=" + serverData.substring(7));
-			addImage(serverData.substring(7));
+		if (serverData.filename && serverData.id) {
+			addImage(serverData);
+			//addInput(serverData.pic_id);
 			progress.setStatus("Thumbnail Created.");
 			progress.toggleCancel(false);
 		} else {
@@ -77,8 +75,6 @@ function uploadSuccess(file, serverData) {
 			progress.toggleCancel(false);
 			alert(serverData);
 		}
-
-
 	} catch (ex) {
 		this.debug(ex);
 	}
@@ -143,26 +139,27 @@ function uploadError(file, errorCode, message) {
 }
 
 
-function addImage(src) {
-	var newImg = document.createElement("img");
-	newImg.style.margin = "5px";
+function addImage(data) {
+	console.log(data);
+	var newDiv = document.createElement("div");
+	newDiv.className = 'thumbnail col-sm-3';
+	newDiv.innerHTML = '<img src="'+data.filename+'" alt="'+data.filename+'" /><div class="caption"><input type="hidden" name="picture[]" value="'+data.id+'" />'+data.filename+'<span class="navbar-right"><a href="javascript:;" title="删除" onclick="return deleteImage(this);">删除</a></span></div>';
+	document.getElementById("thumbnails").appendChild(newDiv);
+	// if (newImg.filters) {
+	// 	try {
+	// 		newImg.filters.item("DXImageTransform.Microsoft.Alpha").opacity = 0;
+	// 	} catch (e) {
+	// 		// If it is not set initially, the browser will throw an error.  This will set it if it is not set yet.
+	// 		newImg.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(opacity=' + 0 + ')';
+	// 	}
+	// } else {
+	// 	newImg.style.opacity = 0;
+	// }
 
-	document.getElementById("thumbnails").appendChild(newImg);
-	if (newImg.filters) {
-		try {
-			newImg.filters.item("DXImageTransform.Microsoft.Alpha").opacity = 0;
-		} catch (e) {
-			// If it is not set initially, the browser will throw an error.  This will set it if it is not set yet.
-			newImg.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(opacity=' + 0 + ')';
-		}
-	} else {
-		newImg.style.opacity = 0;
-	}
-
-	newImg.onload = function () {
-		fadeIn(newImg, 0);
-	};
-	newImg.src = src;
+	// newImg.onload = function () {
+	// 	fadeIn(newImg, 0);
+	// };
+	// newImg.src = src;
 }
 
 function fadeIn(element, opacity) {

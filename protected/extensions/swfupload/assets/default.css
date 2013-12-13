@@ -100,3 +100,6 @@ div.swfupload {
         width: 180px;
         border:1px solid #CCC;
 }
+#divFileProgressContainer{
+	display: none;
+}

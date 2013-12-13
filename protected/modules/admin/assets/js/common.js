@@ -7,6 +7,10 @@ function after_ajax_update(id,data){
     alert(data);
 }
 
+function deleteImage(img){
+	$(img).closest("div.thumbnail").remove();
+}
+
 
 
 
